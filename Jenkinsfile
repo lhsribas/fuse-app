@@ -48,9 +48,6 @@ pipeline
                     withMaven(mavenSettingsConfig: "maven-settings") {
                         sh "mvn clean package"
                     }
-
-                    sh "ls"
-                    sh "target"
                 }
             }
         }
@@ -86,7 +83,7 @@ pipeline
                         openshift.withProject("${params.PROJECT_NAME}")
                         {
                             echo "Using project: ${openshift.project()}"
-                            openshift.selector("bc", "${artifactId}").startBuild("--from-file=target/--from-file=target/${artifactId}-${version}.jar", "--wait=true")
+                            openshift.selector("bc", "${artifactId}").startBuild("--from-file=target/${artifactId}-${version}.jar", "--wait=true")
                         }
                     }
                 }
