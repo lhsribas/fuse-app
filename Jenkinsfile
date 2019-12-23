@@ -48,6 +48,9 @@ pipeline
                     withMaven(mavenSettingsConfig: "maven-settings") {
                         sh "mvn clean package"
                     }
+
+                    sh "ls"
+                    sh "target"
                 }
             }
         }
