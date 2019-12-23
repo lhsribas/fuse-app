@@ -17,7 +17,7 @@ public class IRGetOrder extends RouteBuilder {
                 .routeId("ir-get-orders-id")
                 .description("")
 
-                .toD("http4://{{url.get.orders}}?bridgeEndpoint=true&connectionRequest=300&connectTimeout=300&socketTimeout=300")
+                .toD("http4:{{url.get.orders}}?bridgeEndpoint=true&connectionRequest=300&connectTimeout=300&socketTimeout=300")
                 .process(new ExchangeBodyInToBodyOutProcessor())
                 .log(LoggingLevel.INFO, logger, "${body}")
 
